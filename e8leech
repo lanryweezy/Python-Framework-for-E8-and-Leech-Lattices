@@ -1,0 +1,13 @@
+#!/bin/bash
+# E8 Leech Lattice Framework CLI Wrapper Script
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FRAMEWORK_DIR="$(dirname "$SCRIPT_DIR")"
+
+# Set Python path to include the framework
+export PYTHONPATH="$FRAMEWORK_DIR/src:$FRAMEWORK_DIR:$PYTHONPATH"
+
+# Execute the CLI with all arguments
+python3 "$FRAMEWORK_DIR/e8leech_cli.py" "$@"
+
