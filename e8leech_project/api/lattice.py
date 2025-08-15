@@ -3,13 +3,10 @@ import numpy as np
 import sys
 import os
 
-# Add the main framework to the path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..', 'src'))
-
-from e8leech.lattices.e8_lattice import E8Lattice
-from e8leech.lattices.leech_lattice import LeechLattice
-from e8leech.modules.crypto.lwe import LWE
-from e8leech.modules.ai.equivariant_gnn import EquivariantGNN
+from e8leech_project.lattices.e8_lattice import E8Lattice
+from e8leech_project.lattices.leech_lattice import LeechLattice
+from e8leech_project.crypto.lwe import LWE
+from e8leech_project.ai.equivariant_gnn import EquivariantGNN
 
 lattice_bp = Blueprint('lattice', __name__)
 

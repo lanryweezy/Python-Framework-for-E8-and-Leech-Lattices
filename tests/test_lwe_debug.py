@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from e8leech.modules.crypto.lwe import LWECryptosystem
+from e8leech_project.crypto.lwe import LWECryptosystem
 
 def test_lwe_single_bit_encryption_decryption():
     dimension = 24

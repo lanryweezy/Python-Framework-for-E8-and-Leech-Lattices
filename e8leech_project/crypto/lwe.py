@@ -39,21 +39,22 @@ class LWECryptosystem:
 
     def decrypt(self, ciphertext: List[Tuple[np.ndarray, int]]) -> bytes:
         if self.private_key is None:
-            raise ValueError("Private key not generated. Call generate_keypair first.")
+            raise ValueError("No private key available. Generate keypair first.")
 
         s = self.private_key
+        q = self.modulus
+        half_q = q // 2
+        quarter_q = q // 4
         decrypted_bits = []
 
         for u, v in ciphertext:
-            decrypted_val = (v - s.T @ u) % self.modulus
-            if decrypted_val > self.modulus / 2:
-                decrypted_val -= self.modulus
-
-            if abs(decrypted_val) < self.modulus / 4:
+            decrypted_val = int((v - int(s.T @ u)) % q)
+            if decrypted_val > half_q:
+                decrypted_val -= q
+            if abs(decrypted_val) <= quarter_q:
                 decrypted_bits.append(0)
             else:
                 decrypted_bits.append(1)
-
         return self._bits_to_bytes(decrypted_bits)
 
     def _bytes_to_bits(self, data: bytes) -> List[int]:

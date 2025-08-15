@@ -53,7 +53,7 @@ class E8Lattice(BaseLattice):
 
         # 128 roots with entries ±1/2 and an even number of minus signs.
         for signs in itertools.product([-0.5, 0.5], repeat=8):
-            if int(np.sum(signs) * 2) % 2 == 0:
+            if signs.count(-0.5) % 2 == 0:
                 roots.append(np.array(signs))
 
         self._root_system_cache = np.array(roots)

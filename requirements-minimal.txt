@@ -1,0 +1,7 @@
+numpy
+scipy
+numba
+pytest
+hypothesis
+flask
+flask-cors

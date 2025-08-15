@@ -5,6 +5,11 @@ from typing import Tuple, Optional
 class BLISSSignature:
     """
     BLISS (Bimodal Lattice Signature Scheme) implementation.
+
+    WARNING: This implementation is for educational purposes only and is not
+    secure for production use. It lacks critical security features,
+    including proper verification and secure sampling, which makes it
+    vulnerable to attacks.
     """
 
     def __init__(self, n: int = 512, q: int = 12289, sigma: float = 215.0, kappa: int = 23):

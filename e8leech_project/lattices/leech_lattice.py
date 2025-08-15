@@ -94,13 +94,16 @@ class LeechLattice(BaseLattice):
         """
         Get expected mathematical properties for Leech lattice.
         """
+        computed_det = float(self.determinant) if self.determinant is not None else None
+        is_unimodular = bool(computed_det is not None and np.isclose(computed_det, 1.0))
+
         return {
             'dimension': self.DIMENSION,
             'kissing_number': self.KISSING_NUMBER,
             'packing_density': self.EXPECTED_PACKING_DENSITY,
-            'determinant': 1.0,
+            'determinant': computed_det,
             'even_lattice': True,
-            'unimodular': True,
+            'unimodular': is_unimodular,
             'no_roots_norm_2': True
         }
 

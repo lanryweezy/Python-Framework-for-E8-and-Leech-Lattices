@@ -21,7 +21,7 @@ def read_readme():
     return "E8 Leech Lattice Framework - A comprehensive mathematical framework for exceptional lattices"
 
 setup(
-    name="e8leech",
+    name="e8leech_project",
     version="1.0.0",
     description="E8 Leech Lattice Framework - Comprehensive mathematical framework for exceptional lattices",
     long_description=read_readme(),
@@ -31,8 +31,7 @@ setup(
     url="https://github.com/e8leech/framework",
     
     # Package configuration
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    packages=find_packages(),
     
     # Dependencies
     install_requires=read_requirements(),
@@ -43,13 +42,13 @@ setup(
     # Entry points for CLI
     entry_points={
         'console_scripts': [
-            'e8leech=e8leech.cli:main',
+            'e8leech=e8leech_project.scripts.cli:main',
         ],
     },
     
     # Package data
     package_data={
-        'e8leech': [
+        'e8leech_project': [
             'configs/*.yaml',
             'configs/*.json',
         ],
