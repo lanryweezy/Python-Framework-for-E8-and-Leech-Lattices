@@ -20,8 +20,14 @@ class LeechLattice(BaseLattice):
             config = {'lattice_specific': {'generate_full_leech_roots': False}}
         super().__init__(config=config)
         self.golay_code = self._generate_golay_code()
-        self.set_basis(self._construct_leech_basis())
+        basis = self._construct_leech_basis()
+        # Calculate determinant directly from the basis
+        gram_matrix = basis @ basis.T
+        determinant = np.linalg.det(gram_matrix)
+        print(f"DEBUG: LeechLattice basis determinant (calculated directly): {determinant}")
+        self.set_basis(basis)
         self._root_system_cache = None
+        
 
     def _generate_golay_code(self) -> np.ndarray:
         """

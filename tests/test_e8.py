@@ -5,11 +5,11 @@ Test script for E8 lattice implementation
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'e8leech_project'))
 
 import numpy as np
-from e8leech.lattices.e8_lattice import E8Lattice
-from e8leech.core.config import LatticeConfig
+from e8leech_project.lattices.e8_lattice import E8Lattice
+from e8leech_project.config import LatticeConfig
 
 def test_e8_basic():
     """Test basic E8 lattice functionality"""

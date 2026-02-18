@@ -18,8 +18,9 @@ class BaseLattice(ABC):
         Sets the basis for the lattice.
         """
         self.basis = basis
-        self.gram_matrix = self.basis @ self.basis.T
-        self.determinant = np.linalg.det(self.gram_matrix)
+        self._gram_matrix = self._basis @ self._basis.T
+        
+        self._inverse_gram_matrix = np.linalg.inv(self._gram_matrix)
 
     @abstractmethod
     def generate_root_system(self) -> np.ndarray:

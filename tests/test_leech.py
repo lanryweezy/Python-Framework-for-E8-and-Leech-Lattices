@@ -5,11 +5,11 @@ Test script for Leech lattice implementation
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'e8leech_project'))
 
 import numpy as np
-from e8leech.lattices.leech_lattice import LeechLattice
-from e8leech.core.config import LatticeConfig
+from e8leech_project.lattices.leech_lattice import LeechLattice
+from e8leech_project.config import LatticeConfig
 
 def test_leech_basic():
     """Test basic Leech lattice functionality"""
@@ -17,6 +17,8 @@ def test_leech_basic():
     
     # Create Leech lattice
     leech = LeechLattice()
+    gram_matrix = leech.get_basis() @ leech.get_basis().T
+    print(f"DEBUG: LeechLattice Gram matrix determinant: {np.linalg.det(gram_matrix)}")
     
     print(f"Leech dimension: {leech.dimension}")
     print(f"Leech rank: {leech.rank}")

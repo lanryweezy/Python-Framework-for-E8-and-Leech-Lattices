@@ -31,8 +31,8 @@ setup(
     url="https://github.com/e8leech/framework",
     
     # Package configuration
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    packages=find_packages(),
+    package_dir={"e8leech": "e8leech_project"},
     
     # Dependencies
     install_requires=read_requirements(),

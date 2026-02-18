@@ -1,8 +1,8 @@
 numpy
 scipy
 numba
-ray
-dask
+# ray
+# dask
 torch
 onnx
 onnxruntime
